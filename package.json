@@ -1,0 +1,24 @@
+{
+    "name": "ColorPicker",
+    "author": "JB Piot (http://github.com/jbpiot)",
+    "contributors": [
+        "Stephane Puybareau"
+    ],
+    "version": "1.0.0",
+    "copyright": "(c)2013 JB Piot",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jbpiot/colorpicker.git"
+    },
+    "keywords": ["wakanda", "widget", "colorpicker"],
+    "engines": {"wakanda" : ">=6.141182"},
+    "license": "MIT", 
+    "loadDependencies": [
+    	{"id": "Widget_V2"},
+        {"id": "ColorPicker/widget.js", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/spectrum.js", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/spectrum.css", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/css/widget.css", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/designer.js", "studioOnly": true, "version": "1.0.0", "path": "WIDGETS_CUSTOM"}
+    ]
+}
