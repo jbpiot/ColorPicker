@@ -18,7 +18,6 @@
         {"id": "ColorPicker/widget.js", "path": "WIDGETS_CUSTOM"},
         {"id": "ColorPicker/spectrum.js", "path": "WIDGETS_CUSTOM"},
         {"id": "ColorPicker/spectrum.css", "path": "WIDGETS_CUSTOM"},
-        {"id": "ColorPicker/css/widget.css", "version": "1.0.0", "path": "WIDGETS_CUSTOM"},
         {"id": "ColorPicker/designer.js", "studioOnly": true, "version": "1.0.0", "path": "WIDGETS_CUSTOM"}
     ]
 }
