@@ -16,8 +16,9 @@
     "loadDependencies": [
     	{"id": "Widget_V2"},
         {"id": "ColorPicker/widget.js", "path": "WIDGETS_CUSTOM"},
-        {"id": "ColorPicker/spectrum.js", "path": "WIDGETS_CUSTOM"},
-        {"id": "ColorPicker/spectrum.css", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/spectrum/spectrum.js", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/spectrum/spectrum.css", "path": "WIDGETS_CUSTOM"},
+        {"id": "ColorPicker/css/styles.css", "studioOnly": true, "path": "WIDGETS_CUSTOM"},
         {"id": "ColorPicker/designer.js", "studioOnly": true, "version": "1.0.0", "path": "WIDGETS_CUSTOM"}
     ]
 }

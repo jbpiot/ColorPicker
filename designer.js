@@ -1,8 +1,6 @@
 /**
  * ColorPicker widget for Wakanda
- * Simple demo for creating a custom widget based on an external library.
- * designer.js, declaration of the widget for use in Wakanda Studio : attributes & behavior of the widget in the GUI Designer
- * 
+ * With the help of an external library, you can include a color picker on your Wakanda Pages. 
  * @author JB Piot
  */
 (function () {
@@ -11,68 +9,41 @@
     
     var widget = wafWidget.ColorPicker.inherit(WAF.require('waf-behavior/studio'));
     
-    widget.setDescription('Color Picker');
+    widget.setDescription('Color Picker');  //Widget's display name
     
-    
-    /*
-    * Attributes definitions
-    */
-    widget.addAttribute({
-        'name': 'data-binding-r',
-        'description': 'Red',
+    /*Widget properties*/
+    widget.addAttributes([{
+        'name': 'data-binding-red',
+        'description': 'Red Source',
         'typeValue': 'datasource'
-    });
-    
-    widget.addAttribute({
-        'name': 'data-binding-g',
-        'description': 'Green',
+    }, {
+        'name': 'data-binding-green',
+        'description': 'Green Source',
         'typeValue': 'datasource'
-    });
-    
-    widget.addAttribute({
-        'name': 'data-binding-b',
-        'description': 'Blue',
+    }, {
+        'name': 'data-binding-blue',
+        'description': 'Blue Source',
         'typeValue': 'datasource'
-    });
+    }]);
     
-    widget.addAttribute({
-        'name': 'data-width',
-        'description': 'Width',
-        'defaultValue': '50px'
-    });
-    
-    widget.addAttribute({
-        'name': 'data-height',
-        'description': 'Height',
-        'defaultValue': '30px'
+    /*Widget events*/
+    widget.addEvent({
+        'name': 'ColorChange',
+        'description': 'ColorChange'
     });
 
-    /*
-    * Events binding
-    */
-    widget.on('resize', function (event) {
-        this.studioCss('height', event.size.height);
-        this.studioCss('width', event.size.width);
-        this.studioVal('data-width', event.size.width + 'px');
-        this.studioVal('data-height', event.size.height + 'px');
-        this.studioPanelRefresh();
-    });
-    
-    widget.on('display', function (attributes) {
-        this.studioCss('width', attributes['data-width']);
-        this.studioCss('height', attributes['data-height']);
-    });
-    
-    /*
-    * Style change
-    */
+    /*Default size*/
+    widget.setWidth('50');
+    widget.setHeight('30');
+
+    /*Styles*/
     widget.setPanelStyle({
         'fClass': true,
-        'text': true,
-        'background': true,
+        'text': false,
+        'background': false,
         'border': true,
         'sizePosition': true,
         'label': true,
         'disabled': ['border-radius']
     });
-})();
+}());
