@@ -1,18 +1,20 @@
-# ColorPicker Widget for [Wakanda](http://wakanda.org)
+##ColorPicker for Wakanda##
+The ColorPicker widget allows you add a colorpicker control to your page. Each color component can easily be binded to a datasource attribute to set/retrieve the selected color.
 
-## About this widget
+### Properties
+This widget has the following properties:
 
-This is a simple example to demonstrate how you can package an existing library and bundle it in a [Wakanda](http://wakanda.org) widget to be used in Wakanda Studio.
+* __Red Source__: Datasource attribute binded to the red component of the widget.
+* __Green Source__: Datasource attribute binded to the green component of the widget.
+* __Blue Source__: Datasource attribute binded to the blue component of the widget.
 
-## Features
+### Events
+This widget has the following events:
 
-In this example, you will see :
+* __ColorChange__: Event fired on a new color selection.
 
-- how to integrate with an external library : [Spectrum color picker](http://bgrins.github.io/spectrum/) by Brian Grinstead
-- how to define widget properties for use in the GUI Designer
-- how to define basic datasource bindings
 
-## Usage
+### More Information
+For more information on how to install a custom widget, refer to [Installing a Custom Widget](http://doc.wakanda.org/WakandaStudio0/help/Title/en/page3869.html#1027761).
 
-Dowload the widget to folder named 'ColorPicker' in your custom widgets main folder.
-
+For more information about Custom Widgets, refer to [Custom Widgets](http://doc.wakanda.org/Wakanda0.v5/help/Title/en/page3863.html "Custom Widgets") in the [Architecture of Wakanda Applications](http://doc.wakanda.org/Wakanda0.v5/help/Title/en/page3844.html "Architecture of Wakanda Applications") manual.
