@@ -4,15 +4,12 @@
  * @author JB Piot
  */
 (function () {
+    var ColorPicker = WAF.require('waf-core/widget').ColorPicker.inherit(WAF.require('waf-behavior/studio'));
     
-    var wafWidget = WAF.require('waf-core/widget');
-    
-    var widget = wafWidget.ColorPicker.inherit(WAF.require('waf-behavior/studio'));
-    
-    widget.setDescription('Color Picker');  //Widget's display name
+    ColorPicker.setDescription('Color Picker');  //Widget's display name
     
     /*Widget properties*/
-    widget.addAttributes([{
+    ColorPicker.addAttributes([{
         'name': 'data-binding-red',
         'description': 'Red Source',
         'typeValue': 'datasource'
@@ -27,17 +24,17 @@
     }]);
     
     /*Widget events*/
-    widget.addEvent({
+    ColorPicker.addEvent({
         'name': 'ColorChange',
         'description': 'ColorChange'
     });
 
     /*Default size*/
-    widget.setWidth('50');
-    widget.setHeight('30');
+    ColorPicker.setWidth('50');
+    ColorPicker.setHeight('30');
 
     /*Styles*/
-    widget.setPanelStyle({
+    ColorPicker.setPanelStyle({
         'fClass': true,
         'text': false,
         'background': false,
@@ -46,4 +43,6 @@
         'label': true,
         'disabled': ['border-radius']
     });
+    
+    
 }());
