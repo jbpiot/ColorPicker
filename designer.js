@@ -4,37 +4,19 @@
  * @author JB Piot
  */
 (function () {
-    var ColorPicker = WAF.require('waf-core/widget').ColorPicker.inherit(WAF.require('waf-behavior/studio'));
     
-    ColorPicker.setDescription('Color Picker');  //Widget's display name
+    var widget = WAF.require('ColorPicker').ColorPicker;
     
-    /*Widget properties*/
-    ColorPicker.addAttributes([{
-        'name': 'data-binding-red',
-        'description': 'Red Source',
-        'typeValue': 'datasource'
-    }, {
-        'name': 'data-binding-green',
-        'description': 'Green Source',
-        'typeValue': 'datasource'
-    }, {
-        'name': 'data-binding-blue',
-        'description': 'Blue Source',
-        'typeValue': 'datasource'
-    }]);
+    widget.inherit(WAF.require('waf-behavior/studio'));
     
-    /*Widget events*/
-    ColorPicker.addEvent({
-        'name': 'ColorChange',
-        'description': 'ColorChange'
-    });
+    widget.setDescription('Color Picker');  //Widget's display name
 
     /*Default size*/
-    ColorPicker.setWidth('50');
-    ColorPicker.setHeight('30');
+    widget.setWidth('50');
+    widget.setHeight('30');
 
     /*Styles*/
-    ColorPicker.setPanelStyle({
+    widget.setPanelStyle({
         'fClass': true,
         'text': false,
         'background': false,
@@ -43,6 +25,4 @@
         'label': true,
         'disabled': ['border-radius']
     });
-    
-    
 }());

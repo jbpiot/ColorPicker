@@ -4,83 +4,68 @@
  * @author JB Piot
  */
 
-
-(function () {
-    var widget = WAF.require('waf-core/widget');
-    var event = WAF.require('waf-core/event');
-    var ColorPicker = widget.create('ColorPicker');
-    
-    event.create('ColorChange');
+WAF.define('ColorPicker', function () {
+    var Widget = WAF.require('waf-core/widget');
+    var widget = Widget.create('ColorPicker');
     
     /**
     * Framework creates the widget
     */
-    ColorPicker.prototype.init = function () {
-    	var thisWidget = this;
-    	
-        $("input", $(this.node)).siblings().remove();
+    widget.prototype.init = function () {
         
-        $("input", $(this.node)).spectrum({
-            color: "#ff0000",
+        $(this.node).empty();
+        
+        var myPicker  = document.createElement('input');
+        var thisWidget = this;
+        
+        $(this.node).append(myPicker);
+        
+        $(myPicker).spectrum({
+            color: "#000000",
             change: function (color) {
-                thisWidget.fire(new event.ColorChange({color: color.toHexString()}));
+                console.log('color change', color);
+                thisWidget.color (color.toHexString());
+                thisWidget.red   (color.toRgb().r);
+                thisWidget.green (color.toRgb().g);
+                thisWidget.blue  (color.toRgb().b);
 			}
         });
     };
 
-
-
-    ColorPicker.prototype.createDomNode = function() {
-    	this.$super('createDomNode')();
-    	
-    	$(this.node).empty();
-    	
-    	var e = document.createElement('input');
-    	$(this.node).append(e);
-
-    };
-
-
-
     /**
-    * Retrieves the specified color component of the current active color.
-    * If a 2nd parameter is provided, sets the component's
-    * @param {char} component The name of the component to retrieve (r, g or b)
-    * @param {number} value The new value of the color picker
+    * generate a function to set or get a specified component
     */
-    ColorPicker.prototype.colorComponent = function (component, value) {
-        var color = $("input", this.node).spectrum("get").toRgb();
-        
-        if (value !== undefined) {
+    var componentSetter = function(component) {
+        return function(value) {
+            console.log(this.id, component, value);
+            var color = $("input", this.node).spectrum("get").toRgb();
+            
             color[component] = value;
             var s = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
             
             $("input", this.node).spectrum("set", s);
+        };
+    };
+    
+    widget.addProperty('red', {
+        defaultValue: 0,
+        onChange: componentSetter('r')
+    });
+    widget.addProperty('green', {
+        defaultValue: 0,
+        onChange: componentSetter('g')
+    });
+    widget.addProperty('blue', {
+        defaultValue: 0,
+        onChange: componentSetter('b')
+    });
+    widget.addProperty('color', {
+        defaultValue: '#000000',
+        onChange: function(v) {
+            console.log(this.id, 'color', v);
+            $("input", this.node).spectrum("set", v);
         }
-        return color[component];
-    };
-    
-    
-    /**
-    * Declare three color properties to the widget.
-    */
-    ColorPicker.prototype.red = function (v) { return this.colorComponent('r', v); };
-    ColorPicker.prototype.green = function (v) { return this.colorComponent('g', v); };
-    ColorPicker.prototype.blue = function (v) { return this.colorComponent('b', v); };
-    
-    /**
-    * Make the three color properties bindable (data-binding-red, data-binding-green, data-binding-blue)
-    */
-    ColorPicker.makeBindableProperty('red', ColorPicker.prototype.red, event.ColorChange);
-    ColorPicker.makeBindableProperty('green', ColorPicker.prototype.green, event.ColorChange);
-    ColorPicker.makeBindableProperty('blue', ColorPicker.prototype.blue, event.ColorChange);
-    
-    
-    /**
-    * Sets the color of the color picker to <tt>color</tt>
-    * @param {string} color The new color for the color picker.
-    */
-    ColorPicker.prototype.setColor = function (c) {
-        $("input", this.node).spectrum("set", c);
-    };
-}());
+    });
+
+	return { ColorPicker: widget };
+});
