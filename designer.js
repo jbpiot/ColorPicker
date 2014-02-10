@@ -4,11 +4,6 @@
  * @author JB Piot
  */
 (function () {
-    
-    var widget = WAF.require('ColorPicker').ColorPicker;
-    
-    widget.inherit(WAF.require('waf-behavior/studio'));
-    
     widget.setDescription('Color Picker');  //Widget's display name
 
     /*Default size*/
