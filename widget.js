@@ -62,7 +62,6 @@ WAF.define('ColorPicker', function () {
     widget.addProperty('color', {
         defaultValue: '#000000',
         onChange: function(v) {
-            console.log(this.id, 'color', v);
             $("input", this.node).spectrum("set", v);
         }
     });
