@@ -3,15 +3,15 @@
  * With the help of an external library, you can include a color picker on your Wakanda Pages. 
  * @author JB Piot
  */
-(function () {
-    widget.setDescription('Color Picker');  //Widget's display name
+(function (ColorPicker) {
+    ColorPicker.setDescription('Color Picker');  //Widget's display name
 
     /*Default size*/
-    widget.setWidth('50');
-    widget.setHeight('30');
+    ColorPicker.setWidth('50');
+    ColorPicker.setHeight('30');
 
     /*Styles*/
-    widget.setPanelStyle({
+    ColorPicker.setPanelStyle({
         'fClass': true,
         'text': false,
         'background': false,
@@ -20,4 +20,4 @@
         'label': true,
         'disabled': ['border-radius']
     });
-}());
+});
