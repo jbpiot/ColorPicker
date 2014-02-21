@@ -39,5 +39,4 @@
         
         $(this.node).undelegate();
     }
-
 });
